@@ -1,0 +1,118 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+.footer {
+  background-color: $dark;
+  padding: 40px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+
+      @include tablet {
+        align-items: center;
+        justify-content: center;
+      }
+  }
+
+  &__logo-link {
+    width: 164px;
+
+      @include tablet {
+        width: 275px;
+      }
+  }
+
+  &__logo-icon {
+    width: 100%;
+  }
+
+  &__social {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+
+      @include tablet {
+        display: grid;
+        grid-template-areas: "developer contacts copyright";
+        width: 100%;
+      }
+  }
+
+  &__social-block {
+    display: flex;
+    flex-direction: column;
+    gap: 19.5px;
+    grid-area: contacts;
+
+    @include tablet {
+      align-items: center;
+    }
+  }
+
+  &__social-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $light;
+
+    &-image {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__social-list {
+    display: flex;
+    gap: 13px;
+    color: $light_mediim;
+  }
+
+  // &__social-item {
+  // }
+
+  // &__social-link {
+  // }
+
+  // &__social-link-vk {
+  // }
+
+  // &__social-link-youtybe {
+  // }
+
+  // &__social-link-telegramm {
+  // }
+
+  &__developer-list {
+    color: $light_mediim;
+
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        grid-area: developer;
+      }
+  }
+
+  // &__developer-item {
+  // }
+
+  // &__developer-link {
+  // }
+
+  &__copyright {
+    color: $light_mediim;
+
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        grid-area: copyright;
+      }
+  }
+}

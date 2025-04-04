@@ -1,0 +1,36 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+.breadcrumb {
+  padding-bottom: 40px;
+
+  // &__navigation {
+  // }
+
+  &__list {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    outline: none;
+
+    &:not(:last-child)::after {
+      content: '>';
+      color: $grey;
+    }
+  }
+
+  &__link {
+    color: $grey;
+    outline: none;
+  }
+  
+}
+
+
+
+

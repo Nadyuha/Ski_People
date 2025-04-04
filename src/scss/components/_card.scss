@@ -1,0 +1,91 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    margin-bottom: 12px;
+
+    @include tablet {
+      margin-bottom: 19px;
+    }
+
+    @include laptop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  &__like-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  &__describe {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 12px;
+
+      @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 37px;
+      }
+
+      @include laptop {
+        margin-bottom: 18px;
+      }
+
+    &-title {
+      font-size: 12px;
+
+        @include tablet {
+          font-size: 16px;
+        }
+    }
+  
+    &-price {
+      font-size: 16px;
+
+        @include tablet {
+          font-size: 20px;
+        }
+    }
+  }
+
+  &__button {
+    border: 1px solid $blue;
+    border-radius: 32px;
+    outline: none;
+    color: $blue;
+    background-color: transparent;
+    padding: 12px 24px;
+    margin-top: auto;
+    transition: color, border, background-color, .3s ease-in-out;
+
+    &:hover {
+      color: $light;
+      background-color: $blue;
+    }
+
+    &:focus-visible {
+      border: 1px solid $blue_dark;
+    }
+
+    &:disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
+}
