@@ -2,6 +2,11 @@
 @use "../media" as *;
 
 .order {
+  padding-bottom: 60px;
+
+    @include tablet {
+      padding-bottom: 100px;
+    }
 
   &__container {
     padding: 0;
@@ -25,7 +30,7 @@
     border: 1px solid $light_grey;
     border-radius: 16px;
     padding: 14px 16px 24px 16px;
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
   
     
       @include tablet {
@@ -35,7 +40,6 @@
 
       @include laptop {
         padding: 60px 159px;
-        margin-bottom: 100px;
       }
 
       @include bigscreen {
@@ -115,6 +119,7 @@
   }
 
   &__button {
+    text-align: center;
     border: 1px solid #0044f0;
     border-radius: 32px;
     background-color: $blue;
