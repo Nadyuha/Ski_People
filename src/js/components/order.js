@@ -1,8 +1,14 @@
 import { layoutMain } from "./layout";
 import { main } from "./mainSection";
 
+let rendered = false;
 
 export const order = () => {
+
+  if(rendered) {
+    return '';
+  };
+
   const child = `
  <div class="order__container-content">
 
@@ -54,6 +60,8 @@ export const order = () => {
   `;
 
   const page = layoutMain(child, "order__container", "order");
+
+  rendered = true;
 
   return main(page);
 };

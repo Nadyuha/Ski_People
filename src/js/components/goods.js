@@ -2,7 +2,14 @@ import { layoutMain } from "./layout";
 import { main } from "./mainSection";
 import { breadcrumb } from "./breadcrumb";
 
+let rendered = false;
+
 export const goods = () => {
+
+  if(rendered) {
+    return '';
+  };
+
   const child = `
     <h2 class="goods__title">Избранное</h2>
 
@@ -540,6 +547,8 @@ export const goods = () => {
   `;
 
   const page = layoutMain(child, "goods__container", "goods");
+
+  rendered = true
 
   return main(breadcrumb(),page);
 };

@@ -2,7 +2,15 @@ import { layoutMain } from "./layout";
 import { main } from "./mainSection";
 import { catalog } from "./catalog"; 
 
+let rendered = false;
+
 export const mainPage = () => {
+
+  if(rendered) {
+    return '';
+  };
+
+
   const child = `
 
           <ul class="goods__list">
@@ -540,6 +548,8 @@ export const mainPage = () => {
 
 
   const page = layoutMain(child, "goods__container", "goods");
+
+  rendered = true;
 
   return main(catalog(),page);
 };

@@ -1,8 +1,16 @@
 import { layoutMain } from "./layout";
 import { main } from "./mainSection";
 
+let rendered = false;
+
 
 export const cart = () => {
+
+  if(rendered) {
+    return '';
+  };
+
+
   const child = `
        <h2 class="cart__title">Корзина</h2>
 
@@ -102,5 +110,8 @@ export const cart = () => {
 
   const page = layoutMain(child, "cart__container", "cart");
 
+
+  rendered = true;
+  
   return main(page);
 };

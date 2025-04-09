@@ -1,29 +1,43 @@
 import { layout } from "./layout"
 
-export const catalog = () => {
+let rendered = false;
+
+export const catalog = (parent, data = []) => {
+
+  if(rendered) {
+    return document.querySelector('.catalog');
+  };
+
   const el = document.createElement('div');
   el.classList.add('catalog');
+
+  const typeList = [];
+
+  data.map(({type}) => typeList.push(type))
+
+  let catalogItem = '';
+
+  [...new Set(typeList)].forEach(item => {
+    catalogItem += `
+        <li class="catalog__item">
+                  <a href="#" class="catalog__link">${item}</a>
+                </li>
+    `
+  })
+
   const child = `
     <ul class="catalog__list">
-                <li class="catalog__item">
+       <li class="catalog__item">
                   <a href="#" class="catalog__link catalog__link--active">Все</a>
                 </li>
-                <li class="catalog__item">
-                  <a href="#" class="catalog__link">Лыжи</a>
-                </li>
-                <li class="catalog__item">
-                  <a href="#" class="catalog__link">Сноуборды</a>
-                </li>
-                <li class="catalog__item">
-                  <a href="#" class="catalog__link">Экипировка</a>
-                </li>
-                <li class="catalog__item">
-                  <a href="#" class="catalog__link">Ботинки</a>
-                </li>
+        ${catalogItem}
               </ul>
   ` ;
 
   el.append(layout(child, 'catalog__container'));
+  parent.append(el);
+
+  rendered = true;
 
   return el;
 }

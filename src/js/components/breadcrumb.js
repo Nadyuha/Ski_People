@@ -1,6 +1,14 @@
 import { layout } from "./layout"
 
+let rendered = false;
+
 export const breadcrumb = () => {
+
+  if(rendered) {
+    return '';
+  };
+
+
   const el = document.createElement('div');
   el.classList.add('breadcrumb');
   const child = `
@@ -20,6 +28,8 @@ export const breadcrumb = () => {
   ` ;
 
   el.append(layout(child, 'breadcrumb__container'));
+
+  rendered = true;
 
   return el;
 }

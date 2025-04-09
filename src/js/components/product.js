@@ -2,8 +2,15 @@ import { layoutMain } from "./layout";
 import { main } from "./mainSection";
 import { breadcrumb } from "./breadcrumb";
 
+let rendered = false;
 
 export const product = () => {
+
+  if(rendered) {
+    return '';
+  };
+
+
   const child = `
      <h2 class="product__title">Горные&nbsp;лыжи</h2>
 
@@ -144,6 +151,8 @@ export const product = () => {
   `;
 
   const page = layoutMain(child, "product__container", "product");
+  
+  rendered = true;
 
   return main(breadcrumb(),page);
 };
