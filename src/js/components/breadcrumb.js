@@ -28,6 +28,8 @@ export const breadcrumb = () => {
   ` ;
 
   el.append(layout(child, 'breadcrumb__container'));
+  
+  document.body.append(el);
 
   rendered = true;
 

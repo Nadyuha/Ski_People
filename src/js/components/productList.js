@@ -16,6 +16,7 @@ export const productList = (title, data, parent) => {
     return "";
   }
 
+  
   let goodsItem = "";
 
   const child = `
@@ -26,11 +27,24 @@ export const productList = (title, data, parent) => {
   </ul>
 `;
 
+
   const page = layoutMain(child, "product__container", "product");
 
   parent.append(page);
 
   rendered = true;
+
+  const btnLike = () => {
+    const btnLike = document.querySelectorAll('.card__like-button');
+    btnLike.forEach(like => {
+      like.addEventListener('click', ({target}) => {
+        const likeSvg = target.closest('.card__like-svg');
+        likeSvg.classList.toggle('card__like-svg--active')
+      })
+    });
+  }
+
+  btnLike();
 
   const catalogButton = document.querySelector(".catalog");
   const catalogLinks = document.querySelectorAll(".catalog__link");
@@ -44,6 +58,7 @@ export const productList = (title, data, parent) => {
       if (e.target.matches("a")) {
         e.target.classList.add("catalog__link--active");
       }
+      
 
       const refreshList = data.filter(
         (item) => item.type === e.target.textContent
@@ -55,9 +70,12 @@ export const productList = (title, data, parent) => {
       goodsItem = "";
 
       list.innerHTML = renderList(refreshList, goodsItem, API);
+      btnLike();
 
       if (e.target.textContent === "Все") {
+        goodsItem = "";
         list.innerHTML = renderList(data, goodsItem, API);
+        btnLike();
       }
     });
   }

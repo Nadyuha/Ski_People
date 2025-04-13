@@ -1,3 +1,6 @@
+import { localStorageLoad } from "../modules/localstorage";
+const favoriteList = localStorageLoad('ski-people-favorite');
+
 export function renderList (data, list, API) {
 
   data.forEach(goods => {
@@ -15,8 +18,10 @@ export function renderList (data, list, API) {
             class="card__like-button"
             type="button"
             aria-label="Кнопка добавления в избранное"
+            data-id=${goods.id}
           >
             <svg
+              class="card__like-svg ${favoriteList.find(item => item.id === goods.id) ? "card__like-svg--active" : ""}"
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -47,6 +52,7 @@ export function renderList (data, list, API) {
       </li>
       `
     });
+  
     
     return list;
 }

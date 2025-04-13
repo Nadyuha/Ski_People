@@ -33,6 +33,11 @@
     right: 12px;
   }
 
+  &__like-svg--active path {
+    fill: $blue;
+    stroke: $blue;
+  }
+
   &__describe {
     display: flex;
     flex-direction: column;
