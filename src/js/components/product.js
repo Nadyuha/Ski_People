@@ -1,18 +1,24 @@
 import { layoutMain } from "./layout";
-import { main } from "./mainSection";
-import { breadcrumb } from "./breadcrumb";
 
 let rendered = false;
 
-export const product = () => {
+export const product = (title, parent) => {
+  // if(rendered) {
+  //   return '';
+  // };
 
-  if(rendered) {
-    return '';
-  };
+  if (title === "remove") {
+    document.querySelector(".product").remove();
+    rendered = false;
+    return "";
+  }
 
+  if (rendered) {
+    return document.querySelector(".product");
+  }
 
   const child = `
-     <h2 class="product__title">Горные&nbsp;лыжи</h2>
+     <h2 class="product__title">${title}</h2>
 
           <div class="product__description">
 
@@ -150,9 +156,9 @@ export const product = () => {
           </div>
   `;
 
-  const page = layoutMain(child, "product__container", "product");
-  
+  parent.append(layoutMain(child, "product__container", "product"));
+
   rendered = true;
 
-  return main(breadcrumb(),page);
+  return parent;
 };

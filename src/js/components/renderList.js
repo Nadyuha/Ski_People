@@ -1,13 +1,13 @@
 import { localStorageLoad } from "../modules/localstorage";
 const favoriteList = localStorageLoad('ski-people-favorite');
 
-export function renderList (data, list, API) {
+export function renderList (data, list, API, favoriteList) {
 
   data.forEach(goods => {
       list += `
-         <li class="goods__item">
+      <li class="goods__item">
         <article class="goods__card card">
-          <a href="#" class="card__link">
+          <a href="/product" class="card__link">
             <img
               src="${API}/img${goods.img}"
               alt="${goods.name}"

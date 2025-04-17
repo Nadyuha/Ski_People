@@ -2,7 +2,13 @@ import { layout } from "./layout"
 
 let rendered = false;
 
-export const catalog = (parent, data = []) => {
+export const catalog = (action, parent, data = []) => {
+
+  if(action === 'remove') {
+    document.querySelector('.catalog').remove();
+    rendered = false;
+    return "";
+  }
 
   if(rendered) {
     return document.querySelector('.catalog');

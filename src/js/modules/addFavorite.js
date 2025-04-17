@@ -3,29 +3,31 @@ import { localStorageLoad, localStorageSave } from "./localstorage";
 export const addFavorite = async (data) => {
   const favoriteList = localStorageLoad('ski-people-favorite');
   const list = document.querySelector('.goods__list');
-
-
     if(list) {
-      list.addEventListener('click', ({target}) => {
-        const likeBtn = target.closest('.card__like-button');
+      list.addEventListener('click', (e) => {
+        const likeBtn = e.target.closest('.card__like-button');
         if(likeBtn) {
           const id = Number(likeBtn.dataset.id);
+
+          const likeSvg = likeBtn.querySelector('.card__like-svg');
+
           const item = data.find(item => item.id === id);
-          console.log(item);
+
+          likeSvg.classList.toggle('card__like-svg--active');
 
           if(favoriteList.length === 0) {
             favoriteList.push(item);
             localStorageSave('ski-people-favorite', favoriteList);
           } else {
-            let filled = false;
+            let thereIs = false;
             favoriteList.forEach((favoriteItem, index) => {
               if(favoriteItem.id === id) {
-                filled = true;
+                thereIs = true;
                 favoriteList.splice(index, 1);
                 localStorageSave('ski-people-favorite', favoriteList);
               }
             });
-            if(!filled) {
+            if(!thereIs) {
               favoriteList.push(item);
               localStorageSave('ski-people-favorite', favoriteList);
             }
