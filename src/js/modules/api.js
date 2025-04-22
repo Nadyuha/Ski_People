@@ -10,7 +10,7 @@ export const getData = async (query) => {
       const querySearch = data.filter(
         (item) => item.type === query || item.name === query
       );
-      return paginationData(querySearch);
+      return paginationData(querySearch, 12);
     }
 
     return paginationData(data, 12);
