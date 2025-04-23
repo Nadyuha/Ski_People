@@ -32,7 +32,7 @@ export const initRouter = () => {
         paginationHTML('', main(), goods);
         paginationCount(goods);
         footer();
-        addFavorite(goods);
+        addFavorite(goods[0]);
         console.log("HOME");
         router.updatePageLinks();
     },{
@@ -71,10 +71,10 @@ export const initRouter = () => {
     .on('/search', async (query) => {
       const goods = await getData(query.params.query);
         header();
-        catalog('', main(), goods);
-        productList('Список товаров', goods, main());
+        catalog('', main(), goods[0]);
+        productList('Список товаров', goods[0], main());
         footer();
-        addFavorite(goods);
+        addFavorite(goods[0]);
         console.log("SEARCH");
         router.updatePageLinks();
     },{

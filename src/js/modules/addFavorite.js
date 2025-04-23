@@ -11,7 +11,7 @@ export const addFavorite = async (data) => {
 
           const likeSvg = likeBtn.querySelector('.card__like-svg');
 
-          const item = data.find(item => item.id === id);
+          const item = data.find((item) => item.id === id);
 
           likeSvg.classList.toggle('card__like-svg--active');
 
