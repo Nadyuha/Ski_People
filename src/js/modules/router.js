@@ -49,8 +49,7 @@ export const initRouter = () => {
         header();
         breadcrumb('', main(), [
           {'text': 'Главная', 'href':'/'},
-          {'text': 'Лыжи', 'href':'/ski'},
-          {'text': 'Горные лыжи', 'href':'/mountain_skies'},
+          {'text': 'Избранное', 'href':'/favorite'},
         ]);
         productList('Избранное', localStorageLoad('ski-people-favorite'), main());
         paginationHTML('', main(), paginationData(goods, 12));
@@ -70,8 +69,14 @@ export const initRouter = () => {
     })
     .on('/search', async (query) => {
       const goods = await getData(query.params.query);
+      console.log(goods);
         header();
         catalog('', main(), goods[0]);
+        productList('Список товаров', goods[0], main());
+        search();
+        catalog('remove');
+        catalog('', main(), goods[0]);
+        productList('remove', main());
         productList('Список товаров', goods[0], main());
         footer();
         addFavorite(goods[0]);
@@ -80,26 +85,29 @@ export const initRouter = () => {
     },{
       leave(done) {
         catalog('remove');
+        // productList('remove', main());
         productList('remove', main());
         done();
       },
     })
-    .on('/product', () => {
+    .on('/product', async (id) => {
+      const goods = await getData();
+      const obj = goods.flat(Infinity).find(item => item.id === Number(id.params.id));
       header();
       breadcrumb('', main(), [
         {'text': 'Главная', 'href':'/'},
-        {'text': 'Лыжи', 'href':'/ski'},
-        {'text': 'Горные лыжи', 'href':'/mountain_skies'},
+        {'text': obj.type, 'href':`/search?query=${obj.type}`},
+        {'text': obj.name, 'href': '#'},
       ]);
       slider();
-      product('', main());
+      product('', main(), goods, id.params.id);
       footer();
-      console.log('product');
+      console.log("PRODUCT");
       router.updatePageLinks();
     },{
       leave(done) {
-        product('remove');
         breadcrumb('remove');
+        product('remove');
         done();
       },
     })

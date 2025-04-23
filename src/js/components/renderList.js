@@ -3,13 +3,14 @@ const favoriteList = localStorageLoad('ski-people-favorite');
 
 export function renderList (data, list, API, favoriteList) {
 
-  data.forEach(goods => {
+  if(data) {
+    data.forEach(goods => {
       list += `
       <li class="goods__item">
         <article class="goods__card card">
-          <a href="/product" class="card__link">
+          <a href="/product?id=${goods.id}" class="card__link">
             <img
-              src="${API}/img${goods.img}"
+              src="${API}/img/${goods.mainImage !== undefined ? goods.mainImage[0] : ""}"
               alt="${goods.name}"
               class="card__image"
             />
@@ -52,7 +53,9 @@ export function renderList (data, list, API, favoriteList) {
       </li>
       `
     });
-  
-    
     return list;
+  }
+  
+
+  return;
 }

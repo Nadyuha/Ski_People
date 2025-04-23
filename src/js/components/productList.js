@@ -6,20 +6,6 @@ import { localStorageLoad } from "../modules/localstorage";
 let rendered = false;
 
 export const productList = (title, data, parent) => {
-  // const btnLike = () => {
-  //   const btnLike = document.querySelectorAll('.card__like-button');
-    
-  //   btnLike.forEach(like => {
-  //     console.log(like);
-  //     like.addEventListener('click', ({target}) => {
-  //       console.log(like);
-  //       const likeSvg = target.closest('.card__like-svg');
-  //       likeSvg.classList.toggle('card__like-svg--active')
-  //     })
-  //   });
-  // }
-
-  
 
   if (title === "remove") {
     document.querySelector(".goods").remove();
@@ -50,6 +36,7 @@ export const productList = (title, data, parent) => {
 
   const catalogButton = document.querySelector(".catalog");
   const catalogLinks = document.querySelectorAll(".catalog__link");
+
 
   if (catalogButton) {
     catalogButton.addEventListener("click", (e) => {
@@ -84,6 +71,7 @@ export const productList = (title, data, parent) => {
       }
     });
   }
+  
 
   return page;
 };
