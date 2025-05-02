@@ -1,4 +1,5 @@
 export const paginationCount = (data) => {
+
   const buttons = document.querySelectorAll(".count-text__button");
 
   const maxCount = data.length;
@@ -15,17 +16,23 @@ export const paginationCount = (data) => {
     paginationElements[index].classList.add("pagination__item--active");
   };
 
-  buttons[0].addEventListener("click", (e) => {
-    if (currentCount > 0 && currentCount <= maxCount) {
-      currentCount--;
-      paginationActiveElements(currentCount);
-    }
-  });
+  if(buttons[0]) {
+    buttons[0].addEventListener("click", (e) => {
+      if (currentCount > 0 && currentCount <= maxCount) {
+        currentCount--;
+        paginationActiveElements(currentCount);
+      }
+    });
+  }
 
-  buttons[1].addEventListener("click", (e) => {
-    if (currentCount >= 0 && currentCount < maxCount - 1) {
-      currentCount++;
-      paginationActiveElements(currentCount);
-    }
-  });
+
+  if(buttons[1]) {
+    buttons[1].addEventListener("click", (e) => {
+      if (currentCount >= 0 && currentCount < maxCount - 1) {
+        currentCount++;
+        paginationActiveElements(currentCount);
+      }
+    });
 };
+}
+

@@ -1,4 +1,6 @@
-import { layout } from "./layout"
+import { layout } from "./layout";
+import { localStorageLoad } from "../modules/localstorage";
+const cartList = localStorageLoad('ski-people-cart');
 
 let rendered = false;
 
@@ -87,7 +89,7 @@ export const header = () => {
 
       <a href="/cart" class="header__link">
         <span class="header__link-text">Корзина</span>
-        <span class="header__link-count">(5)</span>
+        <span class="header__link-count">(${cartList.length})</span>
         <svg
           width="16"
           height="16"

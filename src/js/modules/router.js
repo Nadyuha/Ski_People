@@ -17,6 +17,8 @@ import { search } from "./search.js";
 import { paginationHTML } from "../components/paginationHTML.js";
 import { paginationCount } from "../components/paginationCount.js";
 import { paginationData } from "../components/paginationData.js";
+import { addCart } from "./addCart.js";
+import { cartCount } from "./cartCount.js";
 
 export const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
@@ -33,6 +35,7 @@ export const initRouter = () => {
         paginationCount(goods);
         footer();
         addFavorite(goods[0]);
+        addCart(goods[0]);
         console.log("HOME");
         router.updatePageLinks();
     },{
@@ -45,15 +48,17 @@ export const initRouter = () => {
     })
     .on('/favorite', async() => {
       const goods = await getData();
-        paginationData(goods, 12)
+      let arr = [];
+      arr.push(localStorageLoad('ski-people-favorite'));
+        paginationData(arr, 12)
         header();
         breadcrumb('', main(), [
           {'text': 'Главная', 'href':'/'},
           {'text': 'Избранное', 'href':'/favorite'},
         ]);
         productList('Избранное', localStorageLoad('ski-people-favorite'), main());
-        paginationHTML('', main(), paginationData(goods, 12));
-        paginationCount(goods);
+        paginationHTML('', main(), localStorageLoad('ski-people-favorite'));
+        paginationCount(arr);
         search();
         footer();
         addFavorite(goods);
@@ -69,7 +74,6 @@ export const initRouter = () => {
     })
     .on('/search', async (query) => {
       const goods = await getData(query.params.query);
-      console.log(goods);
         header();
         catalog('', main(), goods[0]);
         productList('Список товаров', goods[0], main());
@@ -85,7 +89,6 @@ export const initRouter = () => {
     },{
       leave(done) {
         catalog('remove');
-        // productList('remove', main());
         productList('remove', main());
         done();
       },
@@ -108,6 +111,21 @@ export const initRouter = () => {
       leave(done) {
         breadcrumb('remove');
         product('remove');
+        done();
+      },
+    })
+    .on('/cart', async() => {
+      const goods = await getData();
+      header();
+      cart('Корзина', main(), localStorageLoad('ski-people-cart'));
+      search();
+      cartCount();
+      footer();
+      console.log("CART");
+      router.updatePageLinks();
+    }, {
+      leave(done) {
+        cart('remove')
         done();
       },
     })

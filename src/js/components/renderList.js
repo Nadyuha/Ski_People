@@ -1,10 +1,16 @@
 import { localStorageLoad } from "../modules/localstorage";
 const favoriteList = localStorageLoad('ski-people-favorite');
 
-export function renderList (data, list, API, favoriteList) {
+
+export function renderList (data, list, API, favoriteList, cartList) {
 
   if(data) {
     data.forEach(goods => {
+      let inCart;
+      if(cartList) {
+        inCart = cartList.find(item => item.id === goods.id)
+      }
+
       list += `
       <li class="goods__item">
         <article class="goods__card card">
@@ -40,14 +46,15 @@ export function renderList (data, list, API, favoriteList) {
           </button>
           <div class="card__describe">
             <h3 class="card__describe-title">${goods.name}</h3>
-            <p class="card__describe-price">${goods.price} ₽</p>
+            <p class="card__describe-price">${goods.price}&nbsp;₽</p>
           </div>
           <button
-            class="card__button"
+            class="card__button ${inCart ? 'disabled-btn' : ''}"
             type="button"
             aria-label="Добавление товара в корзину"
+            
           >
-            В козину
+           ${inCart ? 'Уже в корзине' : 'В козину'} 
           </button>
         </article>
       </li>

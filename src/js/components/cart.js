@@ -1,35 +1,66 @@
 import { layoutMain } from "./layout";
-import { main } from "./mainSection";
+import { localStorageLoad } from "../modules/localstorage";
+import { API } from "../modules/const";
+
 
 let rendered = false;
 
 
-export const cart = () => {
+export const cart = (title, parent, data, id) => {
+
+  if (title === "remove") {
+    document.querySelector(".cart").remove();
+    rendered = false;
+    return "";
+  }
 
   if(rendered) {
     return '';
   };
 
+  const cartList = localStorageLoad('ski-people-cart');
+
+  let goodsItem = '';
+
+  const totalSum = cartList.reduce((sum, item) => sum + item.count * item.price, 0);
+
+  const render = (data, result) => {
+    if(data) {
+      data.forEach(goods => {
+        //let inCart = cartList.find(item => item.id === id);
+        result += `
+        
+          <li class="cart__item">
+                <img   src="${API}/img/${goods.mainImage !== undefined ? goods.mainImage[0] : ""}"
+                  alt="${goods.name}"
+                  class="cart__item-image" />
+                
+                <h3 class="cart__item-title">${goods.name}</h3>
+                <div class="cart__item-price">${goods.price}&nbsp;₽</div>
+                <p class="cart__item-id">арт.&nbsp;${goods.id}</p>
+  
+                <div class="cart__item-counter counter">
+                  <button class="counter__minus" type="button" aria-label="Кнопка уменьшения количества товара">-</button>
+                  <p class="counter__number">${goods.count}</p>
+                  <button class="counter__plus" type="button" aria-label="Кнопка увеличения количества товара">+</button>
+                </div>
+  
+              </li>
+            `
+      });
+      return result;
+    }
+    }
+    
+
 
   const child = `
-       <h2 class="cart__title">Корзина</h2>
+       <h2 class="cart__title">${title}</h2>
+
+       <div class="cart__wrapper">
 
           <ul class="cart__list">
-
-            <li class="cart__item">
-              <img src="/img/ski__cart.png" alt="Горные лыжи" class="cart__item-image" />
-              <h3 class="cart__item-title">Горные лыжи</h3>
-              <div class="cart__item-price">5&nbsp;000&nbsp;₽</div>
-              <p class="cart__item-id">арт.&nbsp;84348945757</p>
-
-              <div class="cart__item-counter counter">
-                <button class="counter__minus" type="button" aria-label="Кнопка уменьшения количества товара">-</button>
-                <p class="counter__number">1</p>
-                <button class="counter__plus" type="button" aria-label="Кнопка увеличения количества товара">+</button>
-              </div>
-
-            </li>
-
+          ${render(cartList, goodsItem)}
           </ul>
 
           <div class="cart__order">
@@ -39,11 +70,11 @@ export const cart = () => {
             <div class="cart__order-info">
 
               <p class="cart__order-count">
-                <span class="cart__order-count-num">4</span>
+                <span class="cart__order-count-num">${cartList.length}</span>
                 товара на сумму:
               </p>
 
-              <p class="cart__order-price">20&nbsp;000&nbsp;₽</p>
+              <p class="cart__order-price" id="total-price">${totalSum}&nbsp;₽</p>
 
             </div>
 
@@ -69,7 +100,7 @@ export const cart = () => {
 
               <input type="text" name="address" class="cart__form-input" placeholder="Адрес доставки">
 
-              <textarea name="comment" id="comment" placeholder="Комментарий к заказу"></textarea>
+              <textarea name="comment" id="comment" class="cart__form-input cart__form-input-textarea" placeholder="Комментарий к заказу"></textarea>
 
             </fieldset>
 
@@ -106,12 +137,14 @@ export const cart = () => {
             </fieldset>
 
           </form>
+          </div>
   `;
 
   const page = layoutMain(child, "cart__container", "cart");
 
+  parent.append(page) 
 
   rendered = true;
   
-  return main(page);
+  return page;
 };

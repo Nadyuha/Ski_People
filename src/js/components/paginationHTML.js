@@ -13,6 +13,7 @@ export const paginationHTML = (action, parent, data) => {
     return "";
   }
 
+
   const listItems = data.map((item) => `<li class="pagination__item"></li>`).join("");
 
   const el = document.createElement("div");
@@ -33,10 +34,13 @@ export const paginationHTML = (action, parent, data) => {
 
   parent.append(el);
 
-  document
-    .querySelector(".pagination__item")
-    .classList.add("pagination__item--active");
-
+  if(data.length === 0) {
+    document.querySelector(".pagination").classList.add("visually-hidden");
+  } else {
+    document.querySelector(".pagination__item").classList.add("pagination__item--active");
+    document.querySelector(".pagination")
+  }
+  
   rendered = true;
 
   return el;

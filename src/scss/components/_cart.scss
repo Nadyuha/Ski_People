@@ -1,0 +1,330 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+.cart {
+  margin-bottom: 28px;
+
+  @include tablet {
+    margin-bottom: 48px;
+  }
+
+  @include laptop {
+    margin-bottom: 100px;
+  }
+
+  &__title {
+    font-family: $font_second;
+    font-weight: 900;
+    font-size: 24px;
+    color: $dark;
+
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-areas: 
+    "list"
+    "form"
+    "order";
+
+    @include laptop {
+      grid-template-areas: 
+      "list order"
+      "form form";
+      grid-template-columns: 1fr 302px;
+    }
+
+    @include bigscreen {
+      grid-template-columns: 1fr 408px;
+    }
+  }
+
+  &__list {
+    grid-area: list;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  &__item {
+    display: grid;
+    column-gap: 8px;
+    grid-template-columns: 80px min-content 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    grid-template-areas: 
+    "image title title"
+    "image id id"
+    "image counter price"
+    ;
+
+      @include tablet {
+        grid-template-columns: 120px 1fr 1fr;
+        gap: 6px 12px;
+        grid-template-areas: 
+        "image title price"
+        "image id id"
+        "image counter counter"
+        ;
+      }
+  }
+
+  &__item-image {
+    grid-area: image;
+    border-radius: 16px;
+    width: 80px;
+
+      @include tablet {
+        width: 120px;
+      }
+  }
+
+  &__item-title {
+    grid-area: title;
+    font-size: 12px;
+    color: $dark;
+    margin-bottom: 4px;
+
+    @include  tablet {
+      font-size: 16px;
+      margin-bottom: 0px;
+    }
+  }
+
+  &__item-price {
+    grid-area: price;
+    font-size: 12px;
+    color: $dark;
+    justify-self: start;
+    align-self: center;
+
+    @include  tablet {
+      font-size: 16px;
+      justify-self: center;
+    }
+  }
+
+  &__item-id {
+    grid-area: id;
+    font-size: 9px;
+    color: $grey;
+
+    @include tablet {
+      font-size: 12px;
+    }
+  }
+
+  &__item-counter {
+    grid-area: counter;
+  }
+
+  &__order {
+    grid-area: order;
+    padding: 32px 0;
+  }
+
+  &__order-title {
+    font-size: 16px;
+    color: $dark;
+    margin-bottom: 16px;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__order-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    @include tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__order-count {
+    font-size: 12px;
+    color: $dark;
+
+    @include tablet {
+      font-size: 16px;
+    }
+  }
+
+  &__order-count-num {
+  }
+
+  &__order-price {
+    font-size: 12px;
+    color: $dark;
+
+    @include tablet {
+      font-size: 16px;
+    }
+  }
+
+  &__order-delivery {
+    font-size: 9px;
+    color: $grey;
+    margin-bottom: 8px;
+
+    @include tablet {
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__order-button {
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: $light;
+    padding: 12px 24px;
+    border: 1px solid $blue;
+    border-radius: 32px;
+    background: $blue;
+  }
+
+  &__form {
+    grid-area: form;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 0;
+    border-top: 1px solid $light_grey;
+    border-bottom: 1px solid $light_grey;
+
+      @include tablet {
+        grid-template-columns: 350px 350px;
+      }
+
+      @include laptop{
+        grid-template-columns: 408px 408px;
+      }
+  }
+
+  &__form-title {
+    font-size: 16px;
+    color: $dark;
+
+      @include tablet {
+        font-size: 20px;
+      }
+  }
+
+  &__form-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+      @include tablet{
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-column: 1/-1;
+      }
+
+      @include laptop {
+        max-width: 832px;
+        gap: 16px;
+      }
+  }
+
+  &__form-input {
+    border-radius: 4px;
+    background: $light_grey;
+    border: 1px solid transparent;
+    outline: none;
+    padding: 12px 14px;
+    transition: border 0.3s ease-in-out;
+
+    &:hover {
+      border: 1px solid #dfe3eb;
+    }
+
+    @include tablet {
+      
+    }
+
+    &-textarea {
+      min-height: 120px;
+      resize: none;
+      
+      @include tablet {
+        grid-column: 1/-1;
+      }
+    }
+
+    &::placeholder {
+      font-family: $font_second;
+      font-weight: 400;
+      font-size: 12px;
+      color: $grey;
+    }
+  }
+
+  &__form-fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form-legend {
+    font-size: 16px;
+    color: $dark;
+    margin-bottom: 12px;
+
+    @include tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__form-label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+
+      @include tablet {
+        margin-bottom: 9px;
+      }
+    }
+  }
+}
+.counter {
+  font-size: 12px;
+  color: $dark;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid $light_grey;
+  padding: 5px 11px;
+  border-radius: 32px;
+  width: max-content;
+  height: 24px;
+  align-self: center;
+
+    @include tablet {
+      align-self: auto;
+    }
+
+  &__minus {
+  }
+
+  &__number {
+  }
+
+  &__plus {
+  }
+}

@@ -19,12 +19,14 @@ export const productList = (title, data, parent) => {
   
   let goodsItem = "";
   const favoriteList = localStorageLoad("ski-people-favorite");
+  const cartList = localStorageLoad('ski-people-cart');
+
 
   const child = `
   <h2 class="goods__title">${title}</h2>
 
   <ul class="goods__list">
-    ${renderList(data, goodsItem, API, favoriteList)}
+    ${renderList(data, goodsItem, API, favoriteList, cartList)}
   </ul>
 `;
 
@@ -62,12 +64,15 @@ export const productList = (title, data, parent) => {
         refreshList,
         goodsItem,
         API,
-        updatedFavoriteList
+        updatedFavoriteList,
+        cartList
       );
 
       if (e.target.textContent === "Все") {
+        list.textContent = "";
         goodsItem = "";
-        list.innerHTML = renderList(data, goodsItem, API, updatedFavoriteList);
+        //list.innerHTML = renderList(data, goodsItem, API, updatedFavoriteList);
+        list.innerHTML = renderList(data, goodsItem, API, favoriteList, cartList);
       }
     });
   }
