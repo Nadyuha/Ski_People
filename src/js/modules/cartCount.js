@@ -1,4 +1,5 @@
 import { localStorageLoad, localStorageSave } from "./localstorage";
+import { router } from "./router";
 
 export const cartCount = () => {
 
@@ -17,16 +18,21 @@ export const cartCount = () => {
             .querySelector('.cart__item-id')
             .textContent.replace(/[^\d]/g, ''));
 
+            const totalItemPrice = document.querySelectorAll('.cart__item-price')
+
+              
             const countText = e.target.closest('.counter').querySelector('.counter__number');
 
             cartList.map((item, index) => {
               if(item.id === idNumber) {
                 if(e.target.textContent === "+") {
                   cartList[index].count++;
+                  totalItemPrice[index].textContent = item.count * item.price + ' ' + "₽"
                   total.textContent = cartList.reduce((sum, item) => sum + item.count * item.price, 0) + ' ' + "₽";
                 }
                 if(e.target.textContent === "-") {
                   cartList[index].count--;
+                  totalItemPrice[index].textContent = item.count * item.price + ' ' + "₽"
                   total.textContent = cartList.reduce((sum, item) => sum + item.count * item.price, 0) + ' ' + "₽";
                   if(cartList[index].count <= 0) {
                     cartList.splice(index, 1);
@@ -41,5 +47,15 @@ export const cartCount = () => {
             localStorageSave('ski-people-cart', cartList);
           };
         });
+
+        // const formOrder = document.querySelector(".cart__form");
+        // if (formOrder) {
+        //   formOrder.addEventListener("submit", (e) => {
+        //     e.preventDefault();
+        //     const formData = Object.fromEntries(new FormData(formOrder));
+        //     console.log(formData);
+        //     router.navigate('/order');
+        //   });
+        // }
       };
 }

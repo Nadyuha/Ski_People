@@ -19,6 +19,7 @@ import { paginationCount } from "../components/paginationCount.js";
 import { paginationData } from "../components/paginationData.js";
 import { addCart } from "./addCart.js";
 import { cartCount } from "./cartCount.js";
+import { form } from "./form.js";
 
 export const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
@@ -115,17 +116,31 @@ export const initRouter = () => {
       },
     })
     .on('/cart', async() => {
-      const goods = await getData();
+      //const goods = await getData();
       header();
       cart('Корзина', main(), localStorageLoad('ski-people-cart'));
       search();
       cartCount();
+      form();
       footer();
       console.log("CART");
       router.updatePageLinks();
     }, {
       leave(done) {
         cart('remove')
+        done();
+      },
+    })
+    .on('/order', async() => {
+      header();
+      form();
+      order('', main());
+      footer();
+      console.log("ORDER");
+      router.updatePageLinks()
+    }, {
+      leave(done) {
+        order('remove')
         done();
       },
     })

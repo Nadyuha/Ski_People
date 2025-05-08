@@ -21,6 +21,9 @@ export const productList = (title, data, parent) => {
   const favoriteList = localStorageLoad("ski-people-favorite");
   const cartList = localStorageLoad('ski-people-cart');
 
+  const headerCount = document.querySelector('.header__link-count');
+  headerCount.textContent = "(" + cartList.length + ")";
+
 
   const child = `
   <h2 class="goods__title">${title}</h2>
