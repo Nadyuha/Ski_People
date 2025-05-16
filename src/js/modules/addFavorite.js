@@ -15,7 +15,7 @@ export const addFavorite = async (data) => {
 
           likeSvg.classList.toggle('card__like-svg--active');
 
-          if(favoriteList.length === 0) {
+          if(favoriteList.length === 0 || item !== null) {
             favoriteList.push(item);
             localStorageSave('ski-people-favorite', favoriteList);
           } else {
