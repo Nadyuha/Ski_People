@@ -10,17 +10,13 @@
     "max_weight": "80 кг",
     "type": "Сноуборды",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard1.png",
+      "snowboard2.png",
+      "snowboard3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard1.png",
+      "snowboard2.png",
+      "snowboard3.png"],
     "name": "Сноуборд Storm X"
   },
   {
@@ -34,15 +30,15 @@
     "max_weight": "113 кг",
     "type": "Термобельё",
     "mainImage" : [
-      "skis1.png",
-      "skis2.png",
-      "skis3.png",
-      "skis4.png"],
+      "protection1.png",
+      "protection2.png",
+      "protection3.png",
+      "protection4.png"],
     "thumbsImage" : [
-      "skis1.png",
-      "skis2.png",
-      "skis3.png",
-      "skis4.png"],
+      "protection1.png",
+      "protection2.png",
+      "protection3.png",
+      "protection4.png"],
     "name": "Термобельё PowerWarm"
   },
   {
@@ -56,15 +52,13 @@
     "max_weight": "100 кг",
     "type": "Лыжи",
     "mainImage" : [
-      "snowboard1.png",
-      "snowboard2.png",
-      "snowboard3.png",
-      "snowboard1.png"],
+      "skis1.png",
+      "skis2.png",
+      "skis3.png"],
     "thumbsImage" : [
-      "snowboard1.png",
-      "snowboard2.png",
-      "snowboard3.png",
-      "snowboard1.png"],
+      "skis1.png",
+      "skis2.png",
+      "skis3.png"],
     "name": "Беговые лыжи Classic"
   },
   {
@@ -78,17 +72,13 @@
     "max_weight": "116 кг",
     "type": "Куртка",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_jacket-1.png",
+      "card_jacket-2.png",
+      "card_jacket-3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_jacket-1.png",
+      "card_jacket-2.png",
+      "card_jacket-3.png"],
     "name": "Куртка IcePeak Trail"
   },
   {
@@ -102,17 +92,13 @@
     "max_weight": "105 кг",
     "type": "Штаны",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "women-pants-3.png",
+      "women-pants-2.png",
+      "women-pants-1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "women-pants-3.png",
+      "women-pants-2.png",
+      "women-pants-1.png"],
     "name": "Штаны ColdDefender"
   },
   {
@@ -126,17 +112,13 @@
     "max_weight": "68 кг",
     "type": "Штаны",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "man-pants-1.png",
+      "man-pants-2.png",
+      "man-pants-3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "man-pants-1.png",
+      "man-pants-2.png",
+      "man-pants-3.png"],
     "name": "Штаны SnowFlex"
   },
   {
@@ -150,17 +132,13 @@
     "max_weight": "75 кг",
     "type": "Шлем",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_helmet-1.png",
+      "card_helmet-2.png",
+      "card_helmet-3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_helmet-1.png",
+      "card_helmet-2.png",
+      "card_helmet-3.png"],
     "name": "Шлем Force One"
   },
   {
@@ -174,17 +152,13 @@
     "max_weight": "110 кг",
     "type": "Лыжи",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "skis3.png",
+      "skis2.png",
+      "skis1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "skis3.png",
+      "skis2.png",
+      "skis1.png"],
     "name": "Лыжи универсальные Glide"
   },
   {
@@ -198,17 +172,13 @@
     "max_weight": "124 кг",
     "type": "Ботинки",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_boots-1.png",
+      "card_boots-2.png",
+      "card_boots-3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_boots-1.png",
+      "card_boots-2.png",
+      "card_boots-3.png"],
     "name": "Ботинки FlexPro"
   },
   {
@@ -222,17 +192,13 @@
     "max_weight": "91 кг",
     "type": "Сноуборды",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard2.png",
+      "snowboard3.png",
+      "snowboard1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard2.png",
+      "snowboard3.png",
+      "snowboard1.png"],
     "name": "Сноуборд Snow Beast"
   },
   {
@@ -246,17 +212,13 @@
     "max_weight": "109 кг",
     "type": "Штаны",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "man-pants-3.png",
+      "man-pants-2.png",
+      "man-pants-1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "man-pants-3.png",
+      "man-pants-2.png",
+      "man-pants-1.png"],
     "name": "Штаны ColdDefender"
   },
   {
@@ -294,17 +256,13 @@
     "max_weight": "62 кг",
     "type": "Куртка",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_jacket-3.png",
+      "card_jacket-2.png",
+      "card_jacket-1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_jacket-3.png",
+      "card_jacket-2.png",
+      "card_jacket-1.png"],
     "name": "Куртка IcePeak Trail"
   },
   {
@@ -318,17 +276,17 @@
     "max_weight": "93 кг",
     "type": "Термобельё",
     "mainImage" : [
-      "protection1.png",
+      "protection5.png",
       "protection2.png",
       "protection3.png",
       "protection4.png",
-      "protection5.png"],
+      "protection1.png"],
     "thumbsImage" : [
-      "protection1.png",
+      "protection5.png",
       "protection2.png",
       "protection3.png",
       "protection4.png",
-      "protection5.png"],
+      "protection1.png"],
     "name": "Термобельё WarmFlex"
   },
   {
@@ -342,17 +300,13 @@
     "max_weight": "83 кг",
     "type": "Штаны",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "man-pants-2.png",
+      "man-pants-3.png",
+      "man-pants-1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "man-pants-2.png",
+      "man-pants-3.png",
+      "man-pants-1.png"],
     "name": "Штаны SnowFlex"
   },
   {
@@ -366,17 +320,13 @@
     "max_weight": "66 кг",
     "type": "Ботинки",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_ski-2.png",
+      "card_boots-1.png",
+      "card_boots-3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_ski-2.png",
+      "card_boots-1.png",
+      "card_boots-3.png"],
     "name": "Ботинки SnowGrip"
   },
   {
@@ -390,17 +340,13 @@
     "max_weight": "86 кг",
     "type": "Сноуборды",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard3.png",
+      "snowboard2.png",
+      "snowboard1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard3.png",
+      "snowboard2.png",
+      "snowboard1.png"],
     "name": "Сноуборд Ice Hunter"
   },
   {
@@ -438,17 +384,13 @@
     "max_weight": "95 кг",
     "type": "Шлем",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_helmet-3.png",
+      "card_helmet-1.png",
+      "card_helmet-3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_helmet-3.png",
+      "card_helmet-1.png",
+      "card_helmet-3.png"],
     "name": "Шлем Xtreme Core"
   },
   {
@@ -462,17 +404,13 @@
     "max_weight": "138 кг",
     "type": "Сноуборды",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard1.png",
+      "snowboard2.png",
+      "snowboard3.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "snowboard1.png",
+      "snowboard2.png",
+      "snowboard3.png"],
     "name": "Сноуборд Shadow Rider"
   },
   {
@@ -486,17 +424,13 @@
     "max_weight": "71 кг",
     "type": "Куртка",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_jacket-1.png",
+      "card_jacket-3.png",
+      "card_jacket-2.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "card_jacket-1.png",
+      "card_jacket-3.png",
+      "card_jacket-2.png"],
     "name": "Куртка IcePeak Trail"
   },
   {
@@ -510,17 +444,13 @@
     "max_weight": "87 кг",
     "type": "Штаны",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "women-pants-3.png",
+      "women-pants-2.png",
+      "women-pants-1.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
-      "protection3.png",
-      "protection4.png",
-      "protection5.png"],
+      "women-pants-3.png",
+      "women-pants-2.png",
+      "women-pants-1.png"],
     "name": "Штаны ColdDefender"
   },
   {
@@ -534,16 +464,16 @@
     "max_weight": "94 кг",
     "type": "Куртка",
     "mainImage" : [
-      "protection1.png",
+      "protection4.png",
       "protection2.png",
       "protection3.png",
-      "protection4.png",
+      "protection1.png",
       "protection5.png"],
     "thumbsImage" : [
-      "protection1.png",
+      "protection4.png",
       "protection2.png",
       "protection3.png",
-      "protection4.png",
+      "protection1.png",
       "protection5.png"],
     "name": "Куртка Arctic Wind"
   },
@@ -558,15 +488,15 @@
     "max_weight": "80 кг",
     "type": "Куртка",
     "mainImage" : [
-      "protection1.png",
-      "protection2.png",
       "protection3.png",
+      "protection2.png",
+      "protection1.png",
       "protection4.png",
       "protection5.png"],
     "thumbsImage" : [
-      "protection1.png",
-      "protection2.png",
       "protection3.png",
+      "protection2.png",
+      "protection1.png",
       "protection4.png",
       "protection5.png"],
     "name": "Куртка Windstopper"

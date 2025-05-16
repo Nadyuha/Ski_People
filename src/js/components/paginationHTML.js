@@ -2,7 +2,13 @@ import { layout } from "./layout";
 
 let rendered = false;
 
-export const paginationHTML = (action, parent, data) => {
+export const paginationHTML = (action, parent, data, pagination) => {
+
+    const maxPagination = data?.flat(Infinity).length;
+
+    const currentPagination = (data, currentCount) => data.slice(0, currentCount + 1).reduce((acc, item) => acc + item.length, 0);
+
+
   if (action === "remove") {
     document.querySelector(".pagination").remove();
     rendered = false;
@@ -25,7 +31,7 @@ export const paginationHTML = (action, parent, data) => {
   </ul>
   <div class="pagination__count count">
     <button class="count-text__button" type="button">&lt;</button>
-    <p class="count-text__text">12 из 31</p>
+    <p class="count-text__text">${currentPagination(data, Number(pagination))} из ${maxPagination}</p>
     <button class="count-text__button" type="button">&gt;</button>
   </div>
   `;
@@ -34,11 +40,10 @@ export const paginationHTML = (action, parent, data) => {
 
   parent.append(el);
 
-  if(data.length === 0) {
-    document.querySelector(".pagination").classList.add("visually-hidden");
+  if(pagination !== undefined) {
+    document.querySelectorAll(".pagination__item")[pagination].classList.add("pagination__item--active");
   } else {
-    document.querySelector(".pagination__item").classList.add("pagination__item--active");
-    document.querySelector(".pagination")
+    document.querySelector(".pagination").classList.add("visually-hidden");
   }
   
   rendered = true;

@@ -35,7 +35,13 @@ export const productList = (title, data, parent) => {
 
   const page = layoutMain(child, "goods__container", "goods");
 
-  parent.append(page);
+  //parent.append(page);
+  if(document.querySelector('.pagination')) {
+    parent.insertBefore(page, document.querySelector('.pagination'));
+  } else {
+    parent.append(page);
+  }
+
 
   rendered = true;
 

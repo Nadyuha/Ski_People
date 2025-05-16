@@ -25,20 +25,21 @@ export const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
 export const initRouter = () => {
   router
-    .on('/', async() => {
+    .on('/', async({params}) => {
+      // console.log('params: ', params ? params.pagination : 0);
       const goods = await getData();
-        paginationData(goods, 12);
-        header();
-        search();
-        catalog('', main(), goods[0]);
-        productList('Список товаров', goods[0], main());
-        paginationHTML('', main(), goods);
-        paginationCount(goods);
-        footer();
-        addFavorite(goods[0]);
-        addCart(goods[0]);
-        console.log("HOME");
-        router.updatePageLinks();
+      //paginationData(goods, 12);
+      header();
+      search();
+      catalog('', main(), goods[params ? params.pagination : 0]);
+      productList('Список товаров', goods[params ? params.pagination : 0], main());
+      paginationHTML('', main(), goods, params ? params.pagination : 0);
+      paginationCount(goods, params ? params.pagination : 0);
+      footer();
+      addFavorite(goods[params ? params.pagination : 0]);
+      addCart(goods[params ? params.pagination : 0]);
+      console.log("HOME");
+      router.updatePageLinks();
     },{
       leave(done) {
         catalog('remove');
@@ -63,6 +64,7 @@ export const initRouter = () => {
         search();
         footer();
         addFavorite(goods);
+        addCart(goods)
         console.log("FAVORITE");
         router.updatePageLinks();
       },{

@@ -5,7 +5,7 @@ let rendered = false;
 
 export const order = (title, parent) => {
   const orderDate = localStorageLoad("ski-people-order");
-  console.log(orderDate);
+  //console.log(orderDate);
 
   if (title === "remove") {
     document.querySelector(".order").remove();

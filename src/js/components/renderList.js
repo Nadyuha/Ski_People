@@ -1,10 +1,10 @@
 import { localStorageLoad } from "../modules/localstorage";
-const favoriteList = localStorageLoad('ski-people-favorite');
+//const favoriteList = localStorageLoad('ski-people-favorite');
 
 
 export function renderList (data, list, API, favoriteList, cartList) {
 
-  if(data) {
+  if(data || favoriteList) {
     data.forEach(goods => {
       let inCart;
       if(cartList) {
