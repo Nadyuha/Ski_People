@@ -1,9 +1,13 @@
 import { layoutMain } from "./layout";
 import { API } from "../modules/const";
+import { localStorageLoad, localStorageSave } from "../modules/localstorage";
+const favoriteList = localStorageLoad('ski-people-favorite');
+
+
 
 let rendered = false;
 
-export const product = (action, parent, data, id) => {
+export const product = (action, parent, data, id, favoriteList, cartList) => {
   if (action === "remove") {
     document.querySelector(".product").remove();
     rendered = false;
@@ -24,6 +28,7 @@ export const product = (action, parent, data, id) => {
     const section = document.createElement('section');
     section.classList.add('product')
   
+    let inCart = cartList ? cartList.find(item => item.id === dataProduct.id) : '';
   
     const child = `
        <h2 class="product__title">${dataProduct.name}</h2>
@@ -120,15 +125,15 @@ export const product = (action, parent, data, id) => {
                 <div class="product__buttons">
   
                   <button
-                  class="product__buttons-add"
+                  class="product__buttons-add ${inCart ? 'disabled-btn' : ''}"
                   type="button"
                   aria-label="Кнопка добавления в корзину"
                 >
-                  В&nbsp;корзину
+                  ${inCart ? 'Уже в корзине' : 'В козину'} 
                 </button>
   
                 <button
-                  class="product__buttons-like"
+                  class="product__buttons-like ${favoriteList.find(item => item.id === dataProduct.id) ? "product__buttons-like--active" : ""}"
                   type="button"
                   aria-label="Кнопка добавления в избранное"
                 >
@@ -153,10 +158,41 @@ export const product = (action, parent, data, id) => {
               </div>
             </div>
     `;
+
   
       const page = layoutMain(child, "product__container", "product");
     
       parent.append(page) 
+
+      
+    const likeBtn = document.querySelector('.product__buttons-like');
+    const cartBtn = document.querySelector('.product__buttons-add');
+
+    cartBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+        dataProduct.count = 1;
+        cartList.push(dataProduct);
+        localStorageSave("ski-people-cart", cartList);
+        cartBtn.textContent = 'Уже в корзине';
+        cartBtn.classList.add('disabled-btn'); 
+    });
+    
+    likeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(likeBtn.classList.contains('product__buttons-like--active')) {
+        favoriteList.forEach((favoriteItem, index) => {
+          if(favoriteItem.id === dataProduct.id) {
+            favoriteList.splice(index, 1);
+            localStorageSave('ski-people-favorite', favoriteList);
+          }
+        });
+        likeBtn.classList.remove('product__buttons-like--active');  
+      } else {
+        favoriteList.push(dataProduct);
+        localStorageSave('ski-people-favorite', favoriteList);
+        likeBtn.classList.add('product__buttons-like--active');  
+      }
+    })
     
       rendered = true;
     

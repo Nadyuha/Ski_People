@@ -106,7 +106,7 @@ export const initRouter = () => {
         {'text': obj.name, 'href': '#'},
       ]);
       slider();
-      product('', main(), goods, id.params.id);
+      product('', main(), goods, id.params.id, localStorageLoad('ski-people-favorite'), localStorageLoad('ski-people-cart'));
       footer();
       console.log("PRODUCT");
       router.updatePageLinks();

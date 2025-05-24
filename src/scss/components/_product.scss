@@ -242,5 +242,6 @@
   display: none;
     @include tablet {
       display: flex;
+      padding-right: 10px;
     }
 }
